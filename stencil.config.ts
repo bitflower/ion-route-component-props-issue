@@ -6,7 +6,6 @@ export const config: Config = {
 	outputTargets: [
 		{
 			type: 'www',
-			dir: 'public',
 			serviceWorker: {
 				swSrc: 'src/sw.js',
 			},

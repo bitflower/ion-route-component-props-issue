@@ -1,4 +1,4 @@
-FROM mhart/apline-node:8
+FROM mhart/alpine-node:8
 
 WORKDIR /usr/src
 
@@ -7,4 +7,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm build
+RUN npm run build
+
+RUN mv www /public
