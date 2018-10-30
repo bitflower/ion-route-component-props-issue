@@ -1,0 +1,7 @@
+.vscode/
+.stencil/
+
+src/components.d.ts
+
+dist/
+www/

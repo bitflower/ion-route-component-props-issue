@@ -1,0 +1,24 @@
+{
+  "name": "stencil-global-state-issue",
+  "private": true,
+  "version": "1.0.0",
+  "author": "simonhaenisch",
+  "description": "Stencil Global State Issue",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec",
+    "test.watch": "stencil test --spec --watch"
+  },
+  "dependencies": {
+    "@ionic/core": "4.0.0-beta.13"
+  },
+  "devDependencies": {
+    "@stencil/core": "0.15.1",
+    "workbox-build": "3.4.1"
+  }
+}
