@@ -23,10 +23,10 @@ export class HomePage {
 					and the back button disappears.
 				</p>
 				<p>
-					However, on the fast list page, the application throws an error when
-					removing an item at the same position as the previously removed one
-					(the item still gets removed though); this doesn't happen on the slow
-					list page.
+					This performance issue is probably due to how Stencil diffs and
+					decides what it has to re-render. Updating state in the `app-root`
+					means re-rendering not only the root component itself but also all its
+					children, i. e. all it's pages.
 				</p>
 
 				<ion-button href="/slow-list" expand="block" color="danger">
