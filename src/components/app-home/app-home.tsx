@@ -30,11 +30,15 @@ export class HomePage {
 				</p>
 
 				<ion-button href="/slow-list" expand="block" color="danger">
-					Slow list
+					Slow List
 				</ion-button>
 
 				<ion-button href="/fast-list" expand="block" color="success">
-					Fast list
+					Fast List
+				</ion-button>
+
+				<ion-button href="/list-component" expand="block" color="warning">
+					List Component
 				</ion-button>
 			</ion-content>
 		];

@@ -32,7 +32,7 @@ export class AppRoot {
 	list: ListItem[] = [];
 
 	@Listen("remove")
-	remove({ detail: item }: CustomEvent<ListItem>) {
+	onRemove({ detail: item }: CustomEvent<ListItem>) {
 		this.list = this.list.filter(i => i !== item);
 	}
 
@@ -53,6 +53,7 @@ export class AppRoot {
 						componentProps={{ list }}
 					/>
 					<ion-route url="/fast-list" component="app-fast-list" />
+					<ion-route url="/list-component" component="app-component-list" />
 					<ion-route url="/item" component="app-item" />
 				</ion-router>
 
