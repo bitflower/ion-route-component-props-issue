@@ -19,7 +19,7 @@ export class ListComponentPage {
 
 	render() {
 		return [
-			<Header label="Component List" color="warning" />,
+			<Header label="List Component" color="warning" />,
 			<list-component items={this.list} />
 		];
 	}
