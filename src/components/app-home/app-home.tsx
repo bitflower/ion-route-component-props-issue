@@ -5,7 +5,7 @@ import Header from "../shared/Header";
 export class HomePage {
 	render() {
 		return [
-			<Header label="Home" />,
+			<Header label="App Home" />,
 
 			<ion-content padding>
 				<p>
