@@ -33,7 +33,7 @@ export class AppRoot {
 			await toast.onWillDismiss();
 
 			registration.waiting.postMessage("skipWaiting");
-			setTimeout(window.location.reload, 1000);
+			window.location.reload();
 		}
 	}
 
