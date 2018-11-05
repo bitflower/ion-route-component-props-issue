@@ -16,16 +16,13 @@ export class AppRoot {
 	 * so that the new service worker can take over
 	 * and serve the fresh content
 	 */
-	@Listen("window:swUpdate")
+	@Listen("window:swInstall")
 	async onSWUpdate() {
 		const toast = await this.toastCtrl.create({
-			message: "New version available",
-			showCloseButton: true,
-			closeButtonText: "Reload"
+			message: "A new version has been installed",
+			showCloseButton: true
 		});
 		await toast.present();
-		await toast.onWillDismiss();
-		window.location.reload();
 	}
 
 	@State()
