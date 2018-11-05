@@ -10,8 +10,8 @@ export class HomePage {
 			<ion-content padding>
 				<p>
 					The app reproduces an issue with slow re-rendering when an array lives
-					in the `app-root` component and is passed down as a prop, vs. when it
-					is a direct state member of the page component.
+					in the <code>app-root</code> component and is passed down as a prop,
+					vs. when it is a direct state member of the page component.
 				</p>
 				<p>
 					On the "slow list" page (list passed in as a prop and updated from the
@@ -20,16 +20,17 @@ export class HomePage {
 				</p>
 				<p>
 					Furthermore, the "slow list" scrolls up every time an item is removed,
-					and the back button disappears.
+					and the back button disappears, because the route state changes.
 				</p>
 				<p>
 					The "list component" page wraps the list in a{" "}
 					<code>
 						<pre>{"<list-component items={this.list} />"}</pre>
 					</code>{" "}
-					rather than passing the list through the `ion-route` via
-					`componentProps`, which fixes the "lag" but the items float around
-					weirdly when removing one.
+					rather than passing the list through the <code>ion-route</code> via
+					<code>componentProps</code>, which fixes the "lag" but the items float
+					around weirdly when removing them (you can remove them from the bottom
+					instead).
 				</p>
 
 				<ion-button href="/slow-list" expand="block" color="danger">
