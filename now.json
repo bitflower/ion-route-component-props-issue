@@ -4,7 +4,7 @@
 	"alias": "stencil-global-state-issue",
 	"static": {
 		"rewrites": [
-			{ "source": "**", "destination": "/index.html" }
+			{ "source": "**", "destination": "/" }
 		]
 	}
 }
