@@ -1,5 +1,10 @@
 {
 	"type": "static",
 	"name": "stencil-global-state-issue",
-	"alias": "stencil-global-state-issue"
+	"alias": "stencil-global-state-issue",
+	"static": {
+		"rewrites": [
+			{ "source": "**", "destination": "/index.html" }
+		]
+	}
 }
