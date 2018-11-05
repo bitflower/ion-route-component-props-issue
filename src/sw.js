@@ -5,9 +5,7 @@ self.addEventListener("message", e => {
 		return;
 	}
 
-	console.log(e.data.message);
-
-	if (e.data.message === "skipWaiting") {
+	if (e.data === "skipWaiting") {
 		self.workbox.skipWaiting();
 	}
 });
