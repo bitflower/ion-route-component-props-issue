@@ -18,14 +18,23 @@ export class AppRoot {
 	 */
 	@Listen("window:swUpdate")
 	async onSWUpdate() {
-		const toast = await this.toastCtrl.create({
-			message: "New version available",
-			showCloseButton: true,
-			closeButtonText: "Reload"
-		});
-		await toast.present();
-		await toast.onWillDismiss();
-		window.location.reload();
+		const registration = await navigator.serviceWorker.getRegistration();
+
+		if (registration && registration.waiting) {
+			// registration.waiting is the waiting service worker
+
+			const toast = await this.toastCtrl.create({
+				message: "New version available",
+				showCloseButton: true,
+				closeButtonText: "Reload"
+			});
+
+			await toast.present();
+			await toast.onWillDismiss();
+
+			registration.waiting.postMessage("skipWaiting");
+			window.location.reload();
+		}
 	}
 
 	@State()
