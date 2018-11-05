@@ -3,6 +3,9 @@
 	"name": "stencil-global-state-issue",
 	"alias": "stencil-global-state-issue",
 	"static": {
+		"headers": [
+			{ "source": "/sw.js", "headers": [{ "key": "cache-control", "value": "no-cache" }]}
+		],
 		"rewrites": [
 			{ "source": "**", "destination": "/index.html" }
 		]
