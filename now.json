@@ -1,7 +1,10 @@
 {
-	"type": "static",
+	"version": 2,
 	"name": "stencil-global-state-issue",
 	"alias": "stencil-global-state-issue",
+	"builds": [
+		{ "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
+	],
 	"static": {
 		"headers": [
 			{ "source": "/sw.js", "headers": [{ "key": "cache-control", "value": "no-cache" }]}

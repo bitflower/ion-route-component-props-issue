@@ -9,12 +9,11 @@ export class AppRoot {
 
 	/**
 	 * Handle service worker updates correctly.
-	 * This code will show a toast letting the
-	 * user of the PWA know that there is a
-	 * new version available. When they click the
-	 * reload button it then reloads the page
-	 * so that the new service worker can take over
-	 * and serve the fresh content
+	 *
+	 * This code will show a toast letting the user of the PWA know that there is
+	 * a new version available. When they click the reload button it then enables
+	 * the new service worker and reloads the page so that the fresh content will
+	 * be served.
 	 */
 	@Listen("window:swUpdate")
 	async onSWUpdate() {
