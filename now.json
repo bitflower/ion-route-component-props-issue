@@ -5,12 +5,7 @@
 	"builds": [
 		{ "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
 	],
-	"static": {
-		"headers": [
-			{ "source": "/sw.js", "headers": [{ "key": "cache-control", "value": "no-cache" }]}
-		],
-		"rewrites": [
-			{ "source": "**", "destination": "/index.html" }
-		]
-	}
+	"routes": [
+		{ "src": "/sw.js", "headers": { "Cache-Control": "no-cache" } }
+	]
 }
