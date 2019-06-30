@@ -1,7 +1,7 @@
 {
 	"version": 2,
-	"name": "stencil-global-state-issue",
-	"alias": "stencil-global-state-issue",
+	"name": "ion-route-component-props-issue",
+	"alias": "ion-route-component-props-issue",
 	"builds": [
 		{ "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
 	],
