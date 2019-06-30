@@ -29,3 +29,12 @@
   More info about color theming using Ionic:
   https://beta.ionicframework.com/docs/theming/color-generator
 */
+
+code {
+	padding: 0.25em;
+	background: #ddd;
+}
+
+pre {
+	background: #ddd;
+}

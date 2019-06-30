@@ -1,10 +1,13 @@
-import { Component, State } from "@stencil/core";
+import { h, Component, Prop, State } from "@stencil/core";
 import Header from "../shared/Header";
 import { ListItem } from "../../interfaces/list-card-item";
 import { getList } from "../../services/data";
 
 @Component({ tag: "app-fast-list" })
 export class FastListPage {
+	@Prop({ connect: "ion-toast-controller" })
+	toastCtrl: HTMLIonToastControllerElement;
+
 	@State()
 	list: ListItem[];
 
@@ -14,6 +17,26 @@ export class FastListPage {
 
 	remove(item: ListItem) {
 		this.list = this.list.filter(i => i !== item);
+	}
+
+	t0: number;
+	t1: number;
+
+	componentWillUpdate() {
+		this.t0 = Date.now();
+	}
+
+	componentDidUpdate() {
+		this.t1 = Date.now();
+
+		this.toastCtrl
+			.create({
+				message: `Re-rendering took ${this.t1 - this.t0} ms.`,
+				buttons: [{ icon: "close" }],
+				duration: 2000,
+				color: "success"
+			})
+			.then(toast => toast.present());
 	}
 
 	render() {
@@ -45,7 +68,7 @@ export class FastListPage {
 									</ion-item>
 								</ion-card-title>
 							</ion-card-header>
-							<ion-card-content>{item.content}</ion-card-content>
+							<ion-card-content>{item.content()}</ion-card-content>
 						</ion-card>
 					</ion-nav-push>
 				))}

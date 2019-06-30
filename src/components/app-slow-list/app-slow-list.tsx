@@ -1,14 +1,36 @@
-import { Component, Event, EventEmitter, Prop } from "@stencil/core";
+import { h, Component, Event, EventEmitter, Prop } from "@stencil/core";
 import Header from "../shared/Header";
 import { ListItem } from "../../interfaces/list-card-item";
 
 @Component({ tag: "app-list" })
 export class SlowListPage {
+	@Prop({ connect: "ion-toast-controller" })
+	toastCtrl: HTMLIonToastControllerElement;
+
 	@Prop()
 	list: ListItem[];
 
 	@Event()
 	remove: EventEmitter<ListItem>;
+
+	t0: number;
+	t1: number;
+
+	componentWillUpdate() {
+		this.t0 = Date.now();
+	}
+
+	componentDidUpdate() {
+		this.t1 = Date.now();
+
+		this.toastCtrl
+			.create({
+				message: `Re-rendering took ${this.t1 - this.t0} ms.`,
+				buttons: [{ icon: "close" }],
+				duration: 5000
+			})
+			.then(toast => toast.present());
+	}
 
 	render() {
 		return [
@@ -39,7 +61,7 @@ export class SlowListPage {
 									</ion-item>
 								</ion-card-title>
 							</ion-card-header>
-							<ion-card-content>{item.content}</ion-card-content>
+							<ion-card-content>{item.content()}</ion-card-content>
 						</ion-card>
 					</ion-nav-push>
 				))}

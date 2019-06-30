@@ -1,3 +1,5 @@
+import { h } from "@stencil/core";
+
 export default ({ label, color }: { label: string; color?: string }) => (
 	<ion-header>
 		<ion-toolbar color={color || "primary"}>

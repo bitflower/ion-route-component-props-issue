@@ -1,4 +1,4 @@
-import { Component, Prop } from "@stencil/core";
+import { h, Component, Prop } from "@stencil/core";
 import Header from "../shared/Header";
 import { ListItem } from "../../interfaces/list-card-item";
 
@@ -10,9 +10,9 @@ export class ItemPage {
 	render() {
 		return [
 			<Header label={`Item #${this.item.id}`} color="secondary" />,
-			<ion-content padding>
+			<ion-content class="ion-padding">
 				<h2>{this.item.title}</h2>
-				{this.item.content}
+				{this.item.content()}
 			</ion-content>
 		];
 	}

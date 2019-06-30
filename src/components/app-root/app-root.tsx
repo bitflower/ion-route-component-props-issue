@@ -1,4 +1,4 @@
-import { Component, Prop, Listen, State } from "@stencil/core";
+import { h, Component, Prop, Listen, State } from "@stencil/core";
 import { ListItem } from "../../interfaces/list-card-item";
 import { getList } from "../../services/data";
 
@@ -15,7 +15,7 @@ export class AppRoot {
 	 * the new service worker and reloads the page so that the fresh content will
 	 * be served.
 	 */
-	@Listen("window:swUpdate")
+	@Listen("swUpdate", { target: "window" })
 	async onSWUpdate() {
 		const registration = await navigator.serviceWorker.getRegistration();
 
@@ -61,7 +61,6 @@ export class AppRoot {
 						componentProps={{ list }}
 					/>
 					<ion-route url="/fast-list" component="app-fast-list" />
-					<ion-route url="/list-component" component="app-component-list" />
 					<ion-route url="/item" component="app-item" />
 				</ion-router>
 
