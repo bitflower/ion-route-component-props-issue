@@ -27,7 +27,8 @@ export class SlowListPage {
 			.create({
 				message: `Re-rendering took ${t1 - t0} ms.`,
 				buttons: [{ icon: "close" }],
-				duration: 5000
+				duration: 2000,
+				color: "danger"
 			})
 			.then(toast => toast.present());
 	}
