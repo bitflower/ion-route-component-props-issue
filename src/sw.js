@@ -1,4 +1,4 @@
-importScripts("workbox-v3.4.1/workbox-sw.js");
+importScripts("workbox-v4.3.1/workbox-sw.js");
 
 self.addEventListener("message", e => {
 	if (e.data === "skipWaiting") {
