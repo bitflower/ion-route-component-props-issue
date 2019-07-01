@@ -2,6 +2,9 @@ import { h, Component, Event, EventEmitter, Prop } from "@stencil/core";
 import Header from "../shared/Header";
 import { ListItem } from "../../interfaces/list-card-item";
 
+let t0: number;
+let t1: number;
+
 @Component({ tag: "app-list" })
 export class SlowListPage {
 	@Prop({ connect: "ion-toast-controller" })
@@ -13,19 +16,16 @@ export class SlowListPage {
 	@Event()
 	remove: EventEmitter<ListItem>;
 
-	t0: number;
-	t1: number;
-
-	componentWillUpdate() {
-		this.t0 = Date.now();
+	componentWillLoad() {
+		t0 = Date.now();
 	}
 
-	componentDidUpdate() {
-		this.t1 = Date.now();
+	componentDidUnload() {
+		t1 = Date.now();
 
 		this.toastCtrl
 			.create({
-				message: `Re-rendering took ${this.t1 - this.t0} ms.`,
+				message: `Re-rendering took ${t1 - t0} ms.`,
 				buttons: [{ icon: "close" }],
 				duration: 5000
 			})
